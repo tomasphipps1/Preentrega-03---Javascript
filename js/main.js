@@ -5,11 +5,17 @@ let campera = 15;
 let sumacarrito = 0;
 
 /*Mis funciones*/
-const agregarAlCarrito = (precioProducto) => sumacarrito + precioProducto;
+
+const agregarAlCarrito = (precioProducto, totalActual) => {
+    return totalActual + precioProducto;
+};
 
 const vaciarCarrito = () => 0;
 
-const mostrarMensaje = (texto) => alert(texto);
+const mostrarMensaje = (texto) => {
+    console.log(texto);
+    alert(texto);
+};
 
 
 /*simulador*/
@@ -21,8 +27,9 @@ if (nombre) {
     let continuar = true;
 
     while (continuar) {
+        
         let opcion = Number(prompt(
-            `Elige un producto para agregar:\n` +
+            `Elige el numero correspondiente al producto que desea agregar:\n` +
             `1. Cartera ($${cartera})\n` +
             `2. Botas ($${botas})\n` +
             `3. Campera ($${campera})\n` +
@@ -31,15 +38,15 @@ if (nombre) {
 
         switch (opcion) {
             case 1:
-                sumacarrito = agregarAlCarrito(cartera);
+                sumacarrito = agregarAlCarrito(cartera, sumacarrito);
                 mostrarMensaje("Agregaste Cartera. Total actual: $" + sumacarrito);
                 break;
             case 2:
-                sumacarrito = agregarAlCarrito(botas);
+                sumacarrito = agregarAlCarrito(botas, sumacarrito);
                 mostrarMensaje("Agregaste Botas. Total actual: $" + sumacarrito);
                 break;
             case 3:
-                sumacarrito = agregarAlCarrito(campera);
+                sumacarrito = agregarAlCarrito(campera, sumacarrito);
                 mostrarMensaje("Agregaste Campera. Total actual: $" + sumacarrito);
                 break;
             case 4:
